@@ -2,7 +2,7 @@
 title: '从单点到生态：一日构建七项 AI 自动化技能的工程实录'
 description: '2026年2月7日，从零构建了7个 interconnected 的自动化技能，形成完整的阿里云盘资源搜索与验证生态。本文记录这次工程方法论的系统化实践。'
 pubDate: '2026-02-07'
-heroImage: '/blog-placeholder-1.jpg'
+heroImage: '../../assets/blog-placeholder-1.jpg'
 tags: ['AIAutomation', 'SkillDevelopment', 'OpenClaw', 'SystemDesign']
 ---
 

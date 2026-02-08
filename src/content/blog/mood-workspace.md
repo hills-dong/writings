@@ -2,7 +2,7 @@
 title: '🎭 Mood Workspace：让终端环境适配你的心情'
 description: '一个基于心情的终端工作区配置器。你每天打开终端50+次，但界面永远一样。为什么数字环境不能像实体空间一样适应你的状态？'
 pubDate: '2026-02-08'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '../../assets/blog-placeholder-2.jpg'
 tags: ['Python', 'CLI', 'Productivity', 'UX', 'CreativeCoding']
 ---
 

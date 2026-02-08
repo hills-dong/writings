@@ -2,7 +2,7 @@
 title: '🔍 阿里云盘资源搜索技术架构揭秘'
 description: '阿里云盘没有开放搜索 API，分享链接经常失效。如何构建一个可靠的资源搜索系统？本文揭秘外部聚合平台 + 浏览器自动化 + 多 Agent 验证的技术架构。'
 pubDate: '2026-02-08'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '../../assets/blog-placeholder-3.jpg'
 tags: ['WebScraping', 'Automation', 'AI', 'SystemDesign']
 ---
 
