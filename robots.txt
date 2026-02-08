@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hills-dong.github.io/writings/sitemap-index.xml
