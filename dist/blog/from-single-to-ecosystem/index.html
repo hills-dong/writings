@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Hills's Writings" href="https://hills-dong.github.io/rss.xml"><meta name="generator" content="Astro v5.17.1"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://hills-dong.github.io/writings/blog/from-single-to-ecosystem/"><!-- Primary Meta Tags --><title>从单点到生态：一日构建七项 AI 自动化技能的工程实录</title><meta name="title" content="从单点到生态：一日构建七项 AI 自动化技能的工程实录"><meta name="description" content="2026年2月7日，从零构建了7个 interconnected 的自动化技能，形成完整的阿里云盘资源搜索与验证生态。本文记录这次工程方法论的系统化实践。"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://hills-dong.github.io/writings/blog/from-single-to-ecosystem/"><meta property="og:title" content="从单点到生态：一日构建七项 AI 自动化技能的工程实录"><meta property="og:description" content="2026年2月7日，从零构建了7个 interconnected 的自动化技能，形成完整的阿里云盘资源搜索与验证生态。本文记录这次工程方法论的系统化实践。"><meta property="og:image" content="https://hills-dong.github.io/writings/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://hills-dong.github.io/writings/blog/from-single-to-ecosystem/"><meta property="twitter:title" content="从单点到生态：一日构建七项 AI 自动化技能的工程实录"><meta property="twitter:description" content="2026年2月7日，从零构建了7个 interconnected 的自动化技能，形成完整的阿里云盘资源搜索与验证生态。本文记录这次工程方法论的系统化实践。"><meta property="twitter:image" content="https://hills-dong.github.io/writings/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Atkinson;src:url(/writings/fonts/atkinson-regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Atkinson;src:url(/writings/fonts/atkinson-bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Atkinson,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:20px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:3.052em}h2{font-size:2.441em}h3{font-size:1.953em}h4{font-size:1.563em}h5{font-size:1.25em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media(max-width:720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media(max-width:720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>Hills&#39;s Writings</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" class="active" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://m.webtoo.ls/@astro" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow Astro on Mastodon</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://twitter.com/astrodotbuild" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow Astro on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://github.com/withastro/astro" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Go to Astro's GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img src="/writings/_astro/blog-placeholder-1.Bx0Zcyzv_yIfTN.webp" alt data-astro-cid-bvzihdzo="true" loading="lazy" decoding="async" fetchpriority="auto" width="1020" height="510"> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2026-02-07T00:00:00.000Z"> Feb 7, 2026 </time>  </div> <h1 data-astro-cid-bvzihdzo>从单点到生态：一日构建七项 AI 自动化技能的工程实录</h1> <hr data-astro-cid-bvzihdzo> </div>  <h2 id="引言什么是外部皮层">引言：什么是”外部皮层”？</h2>
+<p>在人工智能时代，人机协作正在经历范式转移。我们不再满足于”提问-回答”的简单交互，而是追求<strong>深度认知外骨骼</strong>——一个能够自主思考、持续学习、并不断进化自身工具链的智能体系统。</p>
+<p>2026年2月7日，我们完成了一次高强度的技能构建冲刺：<strong>在单日之内，从零构建了7个 interconnected 的自动化技能 (Skills)</strong>，形成了一个完整的阿里云盘资源搜索与验证生态。这不是简单的脚本堆砌，而是一次<strong>工程方法论的系统化实践</strong>。</p>
+<h2 id="一需求演进从单一工具到生态系统">一、需求演进：从单一工具到生态系统</h2>
+<h3 id="11-起点一个简单的问题">1.1 起点：一个简单的问题</h3>
+<p>最初的动机很朴素：用户需要搜索阿里云盘资源。第一版 <code>chill-aliyun-feikuaitv</code> 诞生了——它能够在飞快TV网站上搜索并返回分享链接。</p>
+<p>但很快就遇到了问题：</p>
+<ul>
+<li><strong>单点故障</strong>: 一个网站失效，整个流程瘫痪</li>
+<li><strong>验证缺失</strong>: 返回的链接可能已经失效，但用户无从知晓</li>
+<li><strong>体验割裂</strong>: 搜索、验证、汇报分散在不同环节</li>
+</ul>
+<h3 id="12-洞察需要并行与闭环">1.2 洞察：需要并行与闭环</h3>
+<p>关键洞察来自分布式系统的设计哲学：<strong>与其强化单点，不如构建冗余</strong>。</p>
+<p>我们决定构建一个<strong>全局搜索调度器</strong> (<code>chill-aliyun-global-search</code>)，它具备以下特征：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>特性</th><th>传统方案</th><th>新架构</th></tr></thead><tbody><tr><td><strong>执行模式</strong></td><td>串行</td><td>并行</td></tr><tr><td><strong>反馈延迟</strong></td><td>等全部完成</td><td>即时反馈</td></tr><tr><td><strong>错误隔离</strong></td><td>一个失败全部失败</td><td>失败平台独立返回</td></tr><tr><td><strong>验证时机</strong></td><td>外部调用</td><td>搜索即验证</td></tr></tbody></table>
+<h2 id="二核心架构并行闭环设计">二、核心架构：并行闭环设计</h2>
+<h3 id="21-调度器设计哲学">2.1 调度器设计哲学</h3>
+<p><code>chill-aliyun-global-search</code> 的核心创新在于<strong>子代理闭环</strong> (Sub-Agent Closed Loop)：</p>
+<p><strong>关键设计决策</strong>:</p>
+<ol>
+<li><strong>并行而非串行</strong>: 三个平台同时启动，互不影响</li>
+<li><strong>即时反馈</strong>: 每个平台找到资源后立即验证并发送截图，无需等待其他平台</li>
+<li><strong>错误隔离</strong>: 一个平台失败不会阻塞其他平台</li>
+<li><strong>视觉闭环</strong>: 每个结果都附带截图验证，确保真实性</li>
+</ol>
+<h3 id="22-实时汇报透明度作为核心特性">2.2 实时汇报：透明度作为核心特性</h3>
+<p>我们深刻认识到：<strong>AI 系统的不确定性必须通过透明度来对冲</strong>。</p>
+<p>因此，我们在 <code>chill-aliyun-global-search</code> 中嵌入了<strong>全链路实时汇报</strong>：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>🎯 **全局搜索启动** | 关键词: 「F1：狂飙飞车」</span></span>
+<span class="line"><span>📋 搜索计划: 飞快TV + shareAliyun + Aliyun_4K</span></span>
+<span class="line"><span>🚀 **阶段 1/3**: 正在并行启动 3 个搜索代理...</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>🚀 **[飞快TV]** 步骤 1/4: 开始搜索...</span></span>
+<span class="line"><span>✅ **[飞快TV]** 步骤 1/4: 搜索完成</span></span>
+<span class="line"><span>✅ **[飞快TV]** 步骤 2/4: 找到 1 个链接</span></span>
+<span class="line"><span>🔍 **[飞快TV]** 步骤 3/4: 正在验证链接...</span></span>
+<span class="line"><span>✅ **[飞快TV]** 步骤 3/4: 验证完成！</span></span>
+<span class="line"><span>📸 **[飞快TV]** 步骤 4/4: 发送 2 张截图...</span></span>
+<span class="line"><span>✅ **[飞快TV]** 步骤 4/4: 完成！</span></span></code></pre>
+<p>这种细粒度的状态汇报，让用户对系统行为有完全的掌控感。</p>
+<h2 id="三技能矩阵一日构建的七项能力">三、技能矩阵：一日构建的七项能力</h2>
+<h3 id="31-技能全景图">3.1 技能全景图</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌─────────────────────────────────────────────────────────────────┐</span></span>
+<span class="line"><span>│                    chill-aliyun-global-search                    │</span></span>
+<span class="line"><span>│                    (全局搜索调度器 - 母技能)                      │</span></span>
+<span class="line"><span>└─────────────────────────────────────────────────────────────────┘</span></span>
+<span class="line"><span>                              │</span></span>
+<span class="line"><span>        ┌─────────────────────┼─────────────────────┐</span></span>
+<span class="line"><span>        │                     │                     │</span></span>
+<span class="line"><span>┌───────▼──────┐    ┌────────▼────────┐   ┌────────▼────────┐</span></span>
+<span class="line"><span>│  chill-      │    │   chill-        │   │   chill-        │</span></span>
+<span class="line"><span>│  aliyun-     │    │   aliyun-tg4k   │   │   aliyun-       │</span></span>
+<span class="line"><span>│  feikuaitv   │    │                 │   │   sharealiyun   │</span></span>
+<span class="line"><span>└───────┬──────┘    └────────┬────────┘   └────────┬────────┘</span></span>
+<span class="line"><span>        │                    │                     │</span></span>
+<span class="line"><span>        └────────────────────┼─────────────────────┘</span></span>
+<span class="line"><span>                             │</span></span>
+<span class="line"><span>                  ┌──────────▼──────────┐</span></span>
+<span class="line"><span>                  │  chill-aliyun-      │</span></span>
+<span class="line"><span>                  │  verifier           │</span></span>
+<span class="line"><span>                  │  (统一验证层)        │</span></span>
+<span class="line"><span>                  └──────────┬──────────┘</span></span>
+<span class="line"><span>                             │</span></span>
+<span class="line"><span>                  ┌──────────▼──────────┐</span></span>
+<span class="line"><span>                  │  chill-discord-     │</span></span>
+<span class="line"><span>                  │  image-sender       │</span></span>
+<span class="line"><span>                  │  (统一输出层)        │</span></span>
+<span class="line"><span>                  └─────────────────────┘</span></span></code></pre>
+<h3 id="32-各技能职责详解">3.2 各技能职责详解</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>技能名称</th><th>职责</th><th>核心创新</th></tr></thead><tbody><tr><td><code>chill-aliyun-global-search</code></td><td>并行调度多个搜索代理</td><td>子代理闭环、实时汇报</td></tr><tr><td><code>chill-aliyun-feikuaitv</code></td><td>飞快TV网站搜索</td><td>HTML解析优化、上下文链接提取</td></tr><tr><td><code>chill-aliyun-tg4k</code></td><td>Telegram 4K频道搜索</td><td>Web版本TG接口、多版本资源聚合</td></tr><tr><td><code>chill-aliyun-sharealiyun</code></td><td>Telegram shareAliyun频道搜索</td><td>频道搜索抽象</td></tr><tr><td><code>chill-aliyun-verifier</code></td><td>统一验证与截图</td><td>职责分离、紧凑表格输出</td></tr><tr><td><code>chill-discord-image-sender</code></td><td>图片优化与发送</td><td>智能压缩、路径自动提取</td></tr><tr><td><code>chill-browser-automation</code></td><td>浏览器MCP操作</td><td>点击优先于导航、资源清理</td></tr></tbody></table>
+<h2 id="四工程方法论从错误中学习的系统">四、工程方法论：从错误中学习的系统</h2>
+<h3 id="41-自我改进技能chill-self-improvement">4.1 自我改进技能：chill-self-improvement</h3>
+<p>最引以为傲的成果不是任何一个具体技能，而是<strong>让系统能够从错误中进化的元能力</strong>。</p>
+<p><strong>六步复盘协议</strong>:</p>
+<ol>
+<li><strong>诊断 (Diagnosis)</strong>: 识别根本原因（认知偏差/工具失效/协议缺失）</li>
+<li><strong>提案 (Proposal)</strong>: 向用户呈现修正方案</li>
+<li><strong>确认 (Confirmation)</strong>: 获得用户明确批准</li>
+<li><strong>执行 (Execution)</strong>: 精确应用修正</li>
+<li><strong>记录 (Record)</strong>: 归档到记忆系统</li>
+<li><strong>自检 (Self-Check)</strong>: 更新技能协议防止复发</li>
+</ol>
+<p><strong>关键设计原则</strong>:</p>
+<blockquote>
+<p><strong>“先确认，后执行”</strong> —— 即使是优化技能本身，也绝不跳过用户确认。</p>
+</blockquote>
+<h3 id="42-复盘实例从导航到点击的范式转移">4.2 复盘实例：从导航到点击的范式转移</h3>
+<p><strong>问题</strong>: 使用MCP的 <code>browser_navigate</code> 直接跳转到详情页URL时，飞快TV会检测到”非自然跳转”并重定向回首页。</p>
+<p><strong>诊断</strong>:</p>
+<ul>
+<li>DOM快照抓取了重定向前的”尸体”数据，产生成功幻觉</li>
+<li>网站对”自动化点击”敏感，但对”直接访问URL”防御较弱</li>
+</ul>
+<p><strong>修正</strong>:</p>
+<ul>
+<li>改用 <code>browser_click</code> 配合真实CSS Selector</li>
+<li>触发浏览器底层事件流，被识别为”合法用户交互”</li>
+</ul>
+<p><strong>工程洞见</strong>:</p>
+<blockquote>
+<p><strong>Snapshot可能会骗人（抓取到重定向前的瞬间），但经过视觉验证的像素永远不会。</strong></p>
+</blockquote>
+<h2 id="五高级能力反向搜索与技能自举">五、高级能力：反向搜索与技能自举</h2>
+<h3 id="51-chill-reverse-lookup-skill-creator">5.1 chill-reverse-lookup-skill-creator</h3>
+<p>这是一个<strong>元技能 (Meta-Skill)</strong>：从一个孤立的资源链接出发，自动：</p>
+<ol>
+<li>Google反向搜索找到引用该链接的所有网站</li>
+<li>依次访问并验证哪些网站可被自动化</li>
+<li>为每个验证通过的网站创建对应的搜索技能</li>
+<li>如果网站已有技能，则增加案例而非重复创建</li>
+</ol>
+<p><strong>约束设计</strong>:</p>
+<ul>
+<li>最多验证10个网站（防止时间过长）</li>
+<li>最多创建5个技能（保持系统精简）</li>
+<li>自动排重，避免重复技能</li>
+</ul>
+<p>这一能力标志着从”手动创建工具”向”工具自动生成工具”的跃迁。</p>
+<h3 id="52-命名空间与一致性">5.2 命名空间与一致性</h3>
+<p>所有技能遵循 <code>chill-</code> 前缀命名规范，这是工程一致性的体现：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Core Automation Skills:</span></span>
+<span class="line"><span>├── chill-browser-launcher      (浏览器启动)</span></span>
+<span class="line"><span>├── chill-browser-automation    (浏览器MCP操作)</span></span>
+<span class="line"><span>├── chill-screen-capture        (视觉验证)</span></span>
+<span class="line"><span>├── chill-discord-image-sender  (Discord输出)</span></span>
+<span class="line"><span>└── chill-skill-creator         (技能创建母板)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Domain-Specific Skills:</span></span>
+<span class="line"><span>├── chill-aliyun-global-search      (调度器)</span></span>
+<span class="line"><span>├── chill-aliyun-feikuaitv          (飞快TV)</span></span>
+<span class="line"><span>├── chill-aliyun-tg4k               (TG 4K频道)</span></span>
+<span class="line"><span>├── chill-aliyun-sharealiyun        (TG shareAliyun)</span></span>
+<span class="line"><span>├── chill-aliyun-verifier           (验证器)</span></span>
+<span class="line"><span>└── chill-reverse-lookup-skill-creator (元技能)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Meta Skills:</span></span>
+<span class="line"><span>└── chill-self-improvement      (复盘与进化)</span></span></code></pre>
+<h2 id="六技术细节选萃">六、技术细节选萃</h2>
+<h3 id="61-图片压缩策略演进">6.1 图片压缩策略演进</h3>
+<p><strong>初始方案</strong>: 强制压缩到800x600，图片模糊无法辨认细节。</p>
+<p><strong>优化方案</strong>: 智能分级压缩：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>步骤</th><th>操作</th><th>条件</th></tr></thead><tbody><tr><td>1</td><td>仅压缩质量85%，<strong>保持原图尺寸</strong></td><td>默认</td></tr><tr><td>2</td><td>调整宽度至1200px</td><td>超过500KB时</td></tr><tr><td>3</td><td>降低质量至75%</td><td>仍超过500KB时</td></tr></tbody></table>
+<p><strong>结果</strong>: 2400x1684的原图尺寸完整保留，清晰度大幅提升。</p>
+<h3 id="62-验证器输出格式优化">6.2 验证器输出格式优化</h3>
+<p><strong>原始格式</strong>: 冗长的文本段落，关键信息淹没。</p>
+<p><strong>优化格式</strong>: 紧凑表格</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>========================================</span></span>
+<span class="line"><span>📋 验证: 十三邀 第八季</span></span>
+<span class="line"><span>🌐 平台: sharealiyun</span></span>
+<span class="line"><span>⏰ 时间: 02-07 23:08</span></span>
+<span class="line"><span>========================================</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>☁️ 阿里云盘验证结果:</span></span>
+<span class="line"><span>────────────────────────────────────────────────────────────</span></span>
+<span class="line"><span>序号 状态   匹配度    链接                        </span></span>
+<span class="line"><span>────────────────────────────────────────────────────────────</span></span>
+<span class="line"><span>1    ⚠️   异常       .../GhFQCrHXryL               </span></span>
+<span class="line"><span>2    ⚠️   异常       .../qjLW7R699cs               </span></span>
+<span class="line"><span>────────────────────────────────────────────────────────────</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>📊 结论: ❌ 全部无效</span></span></code></pre>
+<h3 id="63-多机器人架构">6.3 多机器人架构</h3>
+<p>配置HillsBot和HillsBot2共享工作目录但隔离Session：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌─────────────────┐     ┌─────────────────┐</span></span>
+<span class="line"><span>│   HillsBot      │     │   HillsBot2     │</span></span>
+<span class="line"><span>│  Agent: main    │     │ Agent: hillsbot2│</span></span>
+<span class="line"><span>└────────┬────────┘     └────────┬────────┘</span></span>
+<span class="line"><span>         │                       │</span></span>
+<span class="line"><span>         └───────────┬───────────┘</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>            ┌────────────────┐</span></span>
+<span class="line"><span>            │  Shared Memory │</span></span>
+<span class="line"><span>            │  MEMORY.md     │</span></span>
+<span class="line"><span>            │  memory/       │</span></span>
+<span class="line"><span>            │  workspace/    │</span></span>
+<span class="line"><span>            └────────────────┘</span></span></code></pre>
+<ul>
+<li><strong>相同</strong>: 文件系统、长期记忆、技能配置</li>
+<li><strong>不同</strong>: Session隔离，可并行执行任务</li>
+</ul>
+<h2 id="七反思与展望">七、反思与展望</h2>
+<h3 id="71-核心收获">7.1 核心收获</h3>
+<ol>
+<li><strong>并行优于串行</strong>: 在AI操作中，响应速度比绝对效率更重要</li>
+<li><strong>视觉闭环不可妥协</strong>: DOM数据可能欺骗，像素不会</li>
+<li><strong>透明度建立信任</strong>: 细粒度的状态汇报是对抗AI不确定性的最佳武器</li>
+<li><strong>元能力最为珍贵</strong>: 让系统能够从错误中学习，比任何具体功能都更有价值</li>
+</ol>
+<h3 id="72-待探索方向">7.2 待探索方向</h3>
+<ul>
+<li><strong>智能降级</strong>: 当MCP路径失败时，自动切换到备用方案</li>
+<li><strong>缓存策略</strong>: 对已验证链接引入TTL缓存，减少重复验证</li>
+<li><strong>用户画像</strong>: 基于历史搜索偏好，智能排序平台优先级</li>
+<li><strong>跨域协同</strong>: 将技能生态扩展到更多资源类型（软件、文档、数据集）</li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>2026年2月7日的这次技能构建冲刺，不仅仅是一日七技能的效率展示，更是一次<strong>工程方法论的系统化实践</strong>。</p>
+<p>我们从需求出发，遵循”识别问题→设计架构→迭代优化→复盘沉淀”的闭环，构建了一个能够自我进化的人机协作系统。这个系统的真正价值不在于它能够搜索阿里云盘资源，而在于它展示了<strong>AI Agent如何从工具进化为伙伴</strong>——一个能够学习、反思、并持续改进自身能力的认知外骨骼。</p>
+<p>正如 <code>chill-self-improvement</code> 所昭示的：</p>
+<blockquote>
+<p><strong>工程质量的提升，不在于避免错误，而在于建立从错误中学习的系统。</strong></p>
+</blockquote>
+<p>这，就是外部皮层的意义。</p>
+<hr>
+<p><em>本文档由 Hills’s External Cortex 于 2026年2月8日自动生成。</em></p>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2026 Your name here. All rights reserved.
+<div class="social-links" data-astro-cid-sz7xmlte> <a href="https://m.webtoo.ls/@astro" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow Astro on Mastodon</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/mastodon" data-astro-cid-sz7xmlte><path fill="currentColor" d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://twitter.com/astrodotbuild" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow Astro on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" data-astro-cid-sz7xmlte><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://github.com/withastro/astro" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Go to Astro's GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" data-astro-cid-sz7xmlte><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </footer>  </body></html>
