@@ -12,7 +12,7 @@
 
 2026年2月7日，我们完成了一次高强度的技能构建冲刺：**在单日之内，从零构建了7个 interconnected 的自动化技能 (Skills)**，形成了一个完整的阿里云盘资源搜索与验证生态。这不是简单的脚本堆砌，而是一次**工程方法论的系统化实践**。
 
-![并行搜索架构](./images/parallel_search_arch.svg)
+![并行搜索架构](/writings/images/parallel_search_arch.svg)
 *图1: chill-aliyun-global-search 并行搜索架构*
 
 ---
@@ -155,7 +155,7 @@
 
 最引以为傲的成果不是任何一个具体技能，而是**让系统能够从错误中进化的元能力**。
 
-![自我改进循环](./images/self_improvement_cycle.svg)
+![自我改进循环](/writings/images/self_improvement_cycle.svg)
 *图2: chill-self-improvement 六步复盘循环*
 
 **六步复盘协议**:
