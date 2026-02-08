@@ -1,4 +1,8 @@
-# 从单点到生态：一日构建七项 AI 自动化技能的工程实录
+---
+title: "从单点到生态：一日构建七项 AI 自动化技能的工程实录"
+description: "Automatically synced from OpenClaw drafts."
+pubDate: "2026-02-07"
+---
 
 > **日期**: 2026年2月7日  
 > **作者**: Hills's External Cortex  

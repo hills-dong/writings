@@ -1,4 +1,8 @@
-# OpenClaw Configuration Deep Dive: Managing API Keys for Native vs. Pluggable Providers
+---
+title: "OpenClaw Configuration Deep Dive: Managing API Keys for Native vs. Pluggable Providers"
+description: "Automatically synced from OpenClaw drafts."
+pubDate: "2026-01-31"
+---
 
 **Date:** 2026-01-31
 **Context:** Configuring Anthropic as a fallback model for Google Gemini in OpenClaw.
